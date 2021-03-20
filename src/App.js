@@ -27,8 +27,15 @@ function MovieCounter(){
     <div>
       <button onClick={handleClick}>Add Movie</button>
       <h5>Number of movies:{count}</h5>
+      <MovieDisplay movies={count}></MovieDisplay>
+      <MovieDisplay movies={count + 5}></MovieDisplay>
+      <MovieDisplay movies={count + 11}></MovieDisplay>
     </div>
   )
+}
+
+function MovieDisplay (props){
+  return <h4>Movies I have acted: {props.movies}</h4>
 }
 
 function Nayok(props) {
