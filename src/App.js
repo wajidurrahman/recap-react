@@ -3,14 +3,20 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  const nayoks=['Jasim', 'Depjol', 'BappaRaz']
+  const nayoks=[
+    {name:'Jasim', age:56}, 
+    {name:'Depjol', age:61}, 
+    {name:'BappaRaz', age: 15}, 
+    {name:'Omar Sani', age:67}, 
+    {name:'Alomgir', age:66}
+  ];
+
   return (
     <div className="App">
       <MovieCounter></MovieCounter>
-      <Nayok name={nayoks} age="20"></Nayok>
-      <Nayok name="Sakib Khan"></Nayok>
-      <Nayok name={nayoks}></Nayok>
-      <Nayok></Nayok>
+      {
+        nayoks.map(nk => <Nayok name={nk.name} age={nk.age}></Nayok>)
+      }
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
@@ -46,7 +52,7 @@ function Nayok(props) {
   return (
     <div style={nayokStyle}>
       <h1> Ami Nayok-{props.name} </h1>
-      <h3>I have done 5 movies{props.age || 30}</h3>
+      <h3>I have done 5 movies in {props.age || 30} years</h3>
     </div>
   )
 }
